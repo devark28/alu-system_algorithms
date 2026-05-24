@@ -5,7 +5,31 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * enum edge_type_e - Enumerates the different types of
+ * connection between two vertices
+ * @UNIDIRECTIONAL: The connection is made only in one way
+ * @BIDIRECTIONAL: The connection is made in two ways
+ */
+typedef enum edge_type_e
+{
+	UNIDIRECTIONAL = 0,
+	BIDIRECTIONAL
+} edge_type_t;
+
 typedef struct vertex_s vertex_t;
+
+/**
+ * struct edge_s - Node in the linked list of edges for a given vertex
+ * A single vertex can have many edges
+ * @dest: Pointer to the connected vertex
+ * @next: Pointer to the next edge
+ */
+typedef struct edge_s
+{
+	vertex_t *dest;
+	struct edge_s *next;
+} edge_t;
 
 /**
  * struct vertex_s - Node in the linked list of vertices in the adjacency list
