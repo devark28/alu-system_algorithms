@@ -61,6 +61,21 @@ typedef struct graph_s
 	size_t nb_vertices;
 	vertex_t *vertices;
 } graph_t;
+
+/**
+ * struct queue_s - Representation of a queue
+ * @items: items to be queued
+ * @front: Pointer to the first item in queue
+ * @rear: Pointer to the last item in queue
+ */
+typedef struct queue_s
+{
+	int items[SIZE];
+	int front;
+	int rear;
+
+} queue_t;
+
 graph_t *graph_create(void);
 vertex_t *graph_add_vertex(graph_t *graph, const char *str);
 
