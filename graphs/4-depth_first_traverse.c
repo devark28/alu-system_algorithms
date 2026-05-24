@@ -9,8 +9,9 @@
  * @vertex_action: a function to perform an action on each vertex
  * Return: the maximum depth reached during traversal
  */
-size_t traverseVerticesRecursively(vertex_t *vertex, char *visited_flags, size_t current_depth,
-								   void (*vertex_action)(const vertex_t *v, size_t depth))
+size_t traverseVerticesRecursively(vertex_t *vertex,
+	char *visited_flags, size_t current_depth,
+	void (*vertex_action)(const vertex_t *v, size_t depth))
 {
 	size_t current_depth_new = 0, max_depth = current_depth, flag = 0;
 	edge_t *edge_header = NULL;
@@ -27,7 +28,8 @@ size_t traverseVerticesRecursively(vertex_t *vertex, char *visited_flags, size_t
 			vertex_action(edge_header->dest, current_depth);
 			visited_flags[edge_header->dest->index] = 1;
 			current_depth_new =
-					traverseVerticesRecursively(edge_header->dest, visited_flags, current_depth + 1, vertex_action);
+					traverseVerticesRecursively(
+						edge_header->dest, visited_flags, current_depth + 1, vertex_action);
 
 			if (current_depth_new > max_depth)
 				max_depth = current_depth_new;
@@ -48,7 +50,8 @@ size_t traverseVerticesRecursively(vertex_t *vertex, char *visited_flags, size_t
  * @action: a function to perform an action on each vertex along with its depth
  * Return: the maximum depth reached during traversal
  */
-size_t depth_first_traverse(const graph_t *graph, void (*action)(const vertex_t *v, size_t depth))
+size_t depth_first_traverse(const graph_t *graph,
+	void (*action)(const vertex_t *v, size_t depth))
 {
 	vertex_t *current_vertex = NULL;
 	char visited_flags[2048] = {0};
@@ -65,7 +68,8 @@ size_t depth_first_traverse(const graph_t *graph, void (*action)(const vertex_t 
 		{
 			action(current_vertex, 0);
 			visited_flags[current_vertex->index] = 1;
-			current_depth = traverseVerticesRecursively(current_vertex, visited_flags, 1, action);
+			current_depth =
+				traverseVerticesRecursively(current_vertex, visited_flags, 1, action);
 
 			if (current_depth > max_depth)
 				max_depth = current_depth;
