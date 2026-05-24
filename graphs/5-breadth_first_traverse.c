@@ -94,7 +94,8 @@ vertex_t *get_vertex_index(const graph_t *graph, size_t index)
  * @action: A  pointer to a function to be called for each visited vertex.
  * Return: The max breadth , or 0 on failure
  */
-size_t breadth_first_traverse(const graph_t *graph, void (*action)(const vertex_t *v, size_t breadth))
+size_t breadth_first_traverse(const graph_t *graph,
+	void (*action)(const vertex_t *v, size_t breadth))
 {
 	size_t breadth = 0, *visited;
 	int index = 0;
