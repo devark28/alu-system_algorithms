@@ -13,7 +13,6 @@
  * @right: a pointer to the right child
  * @parent: a pointer to the parent node
  */
-
 typedef struct binary_tree_node_s
 {
 	void *data;
@@ -29,7 +28,6 @@ typedef struct binary_tree_node_s
  * @data_cmp: the function to compare two nodes data
  * @root: a pointer to the root node of the heap
  */
-
 typedef struct heap_s
 {
 	size_t size;
@@ -44,7 +42,6 @@ typedef struct heap_s
  * @node: a pointer to the binary tree node
  * @next: a pointer to the next node in the queue
  */
-
 typedef struct binary_tree_node_queue_s
 {
 	binary_tree_node_t *node;
@@ -75,6 +72,13 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data);
 /* task 3 */
 binary_tree_node_t *swap_nodes(binary_tree_node_t *a, binary_tree_node_t *b);
 binary_tree_node_t *n_node(binary_tree_node_t *node, int n);
+/**
+ * restore_heapify - program that restores the heap property
+ * by swapping nodes as needed
+ * @data_cmp: the function for comparing data
+ * @node: the starting node to restore the heap property from
+ * Return: the node after restoring the heap property
+ */
 binary_tree_node_t *restore_heapify(int (*data_cmp)(void *, void *),
 				    binary_tree_node_t *node);
 void *extract_root(heap_t *heap);
