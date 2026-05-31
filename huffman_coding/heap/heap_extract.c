@@ -7,7 +7,6 @@
  * @b: the second node
  * Return: the node that was originally 'b' after swapping
  */
-
 binary_tree_node_t *swap_nodes(binary_tree_node_t *a, binary_tree_node_t *b)
 {
 	void *tmp;
@@ -27,7 +26,6 @@ binary_tree_node_t *swap_nodes(binary_tree_node_t *a, binary_tree_node_t *b)
  * @n: the index of the desired node
  * Return: the n-th node, or NULL if not found
  */
-
 binary_tree_node_t *n_node(binary_tree_node_t *node, int n)
 {
 	int bit_idx, mask;
@@ -65,7 +63,6 @@ binary_tree_node_t *n_node(binary_tree_node_t *node, int n)
  * @node: the starting node to restore the heap property from
  * Return: the node after restoring the heap property
  */
-
 binary_tree_node_t *restore_heapify(int (*data_cmp)(void *, void *),
 				    binary_tree_node_t *node)
 {
@@ -97,7 +94,6 @@ binary_tree_node_t *restore_heapify(int (*data_cmp)(void *, void *),
  * @heap: the heap structure from which to extract the root
  * Return: the data of the extracted root element
  */
-
 void *extract_root(heap_t *heap)
 {
 	binary_tree_node_t *node;
@@ -133,7 +129,6 @@ void *extract_root(heap_t *heap)
  * @heap: the heap structure from which to extract and restore the heap
  * Return: the data of the extracted root element
  */
-
 void *heap_extract(heap_t *heap)
 {
 	void *data;
